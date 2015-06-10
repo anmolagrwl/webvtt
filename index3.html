@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HTML5 MediaElement</title>
+
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("language", "1");
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	   <script src="mediaelement-and-player.min.js"></script>
+	  <link rel="stylesheet" href="mediaelementplayer.min.css" />
+</head>
+<body>
+
+<video width="640" height="480" id="player2" controls="controls" preload="none" >
+  <source src="David.Attenboroughs.Africa.S01E02.HDTV.x264-FTP.mp4" type="video/mp4">
+  <track kind="subtitles" src="David.Attenboroughs.Africa.S01E02.HDTV.x264-FTP.vtt" srclang="en"/>
+  <p>Your browser leaves much to be desired.</p>
+</video>
+
+<div id="caption">
+
+</div>
+
+<script src="captionator-min.js"></script>
+
+<script>
+$('video').mediaelementplayer({
+	// auto-select this language (instead of starting with "None")
+	startLanguage:'en',
+	features: ['playpause','progress','current','duration','tracks','volume','fullscreen']
+});
+
+// var video = document.getElementsByTagName('video')[0];
+//
+// var tracks = video.textTracks; // returns a TextTrackList
+// console.log(tracks);
+// var track = tracks[0]; // returns TextTrack
+var caption = document.getElementsByClassName("mejs-captions-text");
+$(".mejs-captions-text").on('change', caption[0].firstChild.data, function () {
+	// $("#caption").innerHTML += (caption[0].firstChild.data);
+	console.log(caption[0].firstChild.data);
+})
+
+// var cues = track.cues;
+
+// var active_cues = track.activeCues;
+
+// var text = active_cues[0].text;
+// console.log(text);
+
+
+
+// window.addEventListener("load",function(eventData) {
+// 		captionator.captionify();
+// });
+
+// var track = document.getElementById("myvideo").tracks[0];
+// console.log(track);
+// track.generateTranscript("#transcript");
+
+// var cueText = document.getElementById("myvideo").tracks[0].activeCues[0].getCueAsSource();
+// var RDFData = JSON.parse(cueText);
+
+// var myVideo = document.getElementById("myvideo");
+// var myTracks = myVideo.tracks;
+// console.log(myTracks);
+</script>
+
+</body>
+</html>

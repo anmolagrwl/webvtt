@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <video width="640" height="480" controls id="myvideo" src="David.Attenboroughs.Africa.S01E02.HDTV.x264-FTP.mp4">
+      <track src="David.Attenboroughs.Africa.S01E02.HDTV.x264-FTP.vtt" type="text/webvtt" kind="metadata" srclang="en" label="Metadata Track" default />
+      <!-- fallback for rubbish browsers -->
+    </video>
+
+    <script src="captionator-min.js" charset="utf-8"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      window.addEventListener("load",function(eventData) {
+          captionator.captionify();
+        });
+
+
+        var cueText = document.getElementById("myvideo").tracks[0].activeCues[0].getCueAsSource();
+        var RDFData = JSON.parse(cueText);
+        console.log(RDFData);
+      // myTracks.[0].mode = captionator.TextTrack.SHOWING;
+      // captionator.rebuildCaptions(myVideo);
+    </script>
+  </body>
+</html>
